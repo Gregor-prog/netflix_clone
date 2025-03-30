@@ -28,19 +28,21 @@ import IsLogincontext from "../isLogincontext"
             })
 
             if(!post.ok){
-                throw new Error("couldn't register user");
+                const response = await post.json()
+                console.log(response.data.error)
+                console.log("cj")
+                throw new Error(response.data);
             }
 
             if(post.ok){
                 alert("login successful")
                 console.log(post.ok)
                 setisLogin(true)
-                Navigation("/Home", {replace:true})
             }
         } catch (error) {
             if(error){
                 console.log(error)
-                alert("couldn't login")
+                alert(error)
             }
         }
     }
