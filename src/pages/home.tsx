@@ -128,13 +128,13 @@ function Home(){
     console.log(display)
 
     return <div className="bg-black">
-       <NavBar avatar = {index} />
+       <NavBar avatar = {index} id = {id} />
      <div className=" w-[100vw] bg-[black] z-[-3] h-[100vh] sm:overflow-hidden  ">
     
        <video src={display.video} ref={bgvideoRef} autoPlay loop className="sm:absolute mt-[60px] sm:mt-auto top-0 left-0 pointer-events-none  min-w-full "></video>
        <div className="z-4 absolute text-white sm:p-[100px] p-[20px]   sm:pt-[200px] bg-[#00000033]">
-        <p className="text-[60px] sm:w-[60%] w-[100%] font-bold ">{display.title}</p>
-        <p className="sm:w-[50%] text-[1em] sm:text-2xl w-[100%]">{display.overview}</p>
+        <p className="text-[4vw] sm:w-[60%] w-[100%] font-bold ">{display.title}</p>
+        <p className="sm:w-[50%] text-[1em] sm:text-[2vw] w-[100%]">{display.overview}</p>
         <div className="mt-[15px] flex flex-row items-center gap-5 w-[20%] absolute ">
             <button onClick={() => {toggleVideo()}}  className="bg-white cursor-pointer text-black font-bold flex items-center justify-evenly px-[12px] py-[3px] rounded-[6px]"><Play/>Play</button>
             <button onClick={() => {infoDialog()}} className="bg-[#413f3f] text-white font-bold flex items-center justify-evenly px-[12px] py-[3px] rounded-[6px]"><Info/>Info</button>
@@ -162,7 +162,7 @@ function Home(){
         
         {/* play video */}
     </div>
-       <Movie/>
+       <Movie id={id}/>
     </div>
 }
 export default Home

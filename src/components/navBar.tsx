@@ -12,10 +12,11 @@ import { useNavigate } from "react-router"
 import IsLogincontext from "../isLogincontext"
 
 interface navProp{
-    avatar:number
+    avatar:number,
+    id:string
 }
 
-const  NavBar : React.FC<navProp> = ({avatar}) => {
+const  NavBar : React.FC<navProp> = ({avatar,id}) => {
     const [side,setside] = useState(true)
     const [isLogin,setisLogin] = useContext(IsLogincontext)
 
@@ -44,6 +45,14 @@ const  NavBar : React.FC<navProp> = ({avatar}) => {
         console.log
     }
 
+    function toFav(){
+        navigation(`/favourites?id=${id}`)
+    }
+    function toWishes(){
+        navigation(`/wishList?id=${id}`)
+    }
+
+
     
     const navigation = useNavigate()
 
@@ -60,9 +69,9 @@ const  NavBar : React.FC<navProp> = ({avatar}) => {
         
         {side?<div className="flex sm:bg-transparent z-10 sm:flex-row flex-col sm:h-auto h-[200px] sm:mt-[0px] sm:ml-[0px] mt-[140px] ml-[60px] items-center justify-evenly w-[50%]">
             <a href="#"><p className="text-[20px] text-[white] font-semibold ]">Home</p></a>
-            <a href="#"><p className="text-[20px] text-[white] font-semibold ]">Favorites</p></a>
+            <p className="text-[20px] text-[white] font-semibold ]" onClick={() => {toFav()}}>Favorites</p>
             <a href="#"><p className="text-[20px] text-[white] font-semibold ]">About</p></a>
-            <a href="#"><p className="text-[20px] text-[white] font-semibold ]">Bla Bla</p></a>
+            <p className="text-[20px] text-[white] font-semibold ]" onClick={() => {toWishes()}}>Wish Lists</p>
         </div>:null}
 
         <div className="flex flex-row items-center justify-center gap-6 w-[30%] ">
