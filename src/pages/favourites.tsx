@@ -2,6 +2,7 @@ import { useEffect,useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import {Truncate } from '@re-dev/react-truncate'
+import Loading from "../components/loading"
 
 type favo = {
     movieId:string  
@@ -67,16 +68,15 @@ function Favourites(){
     }
 
     if(loading){
-        return <div className="text-black">
-            ...Loading
-        </div>
+        console.log(loading)
+        return <div className="bg-black h-[100vh] flex items-center justify-center"><Loading/></div>
     }
 
 
-    return <div className="bg-black h-[100vh]">
-        <div className="grid grid-cols-4 gap-4 p-4">
+    return <div className="bg-black h-[100vh] overflow-y-scroll">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 p-4">
             {favourites.map((fav:favo) => movie.map((mov:movieType) => (
-                fav.movieId == mov._id? <div key={mov._id} className="relative cursor-pointer" onClick={() => {movieD(mov._id,id)}}>
+                fav.movieId == mov._id? <div key={mov._id} className="relative my-9  cursor-pointer" onClick={() => {movieD(mov._id,id)}}>
                     <img src={`https://image.tmdb.org/t/p/original${mov.poster_path}`} alt="" className="w-full h-full rounded-md" />
                     <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
                     <p className="absolute bottom-4 left-4 text-white font-bold">{mov.title}</p>

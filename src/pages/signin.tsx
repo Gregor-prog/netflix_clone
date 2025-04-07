@@ -7,6 +7,7 @@ import net_6 from "../assets/images/netflix 6.png"
 import net_7 from "../assets/images/netflix 7.jpeg"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import Loading from "../components/loading"
 
 type item = {
     name:string,
@@ -55,7 +56,7 @@ export function Signin(){
      
     if(isLoading){
         console.log(isLoading)
-        return <div> ...loading </div>
+        return <div className="bg-black h-[100vh] flex items-center justify-center"><Loading/></div>
     }
 
     if(error){

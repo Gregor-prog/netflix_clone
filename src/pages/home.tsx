@@ -6,6 +6,7 @@ import { movieType } from "../types"
 import NavBar from "../components/navBar"
 import { Info, Play } from "lucide-react"
 import { Movie } from "../components/movie"
+import Loading from "../components/loading"
 
 function Home(){
 
@@ -120,7 +121,7 @@ function Home(){
 
     if(isLoading){
         console.log(isLoading)
-        return <div>...Loading</div>
+        return <div className="bg-black h-[100vh] flex items-center justify-center"><Loading/></div>
     }
 
     const randIndex = Math.floor(Math.random() * movie.length)

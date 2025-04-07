@@ -4,6 +4,7 @@ import '@splidejs/react-splide/css';
 import {Truncate } from '@re-dev/react-truncate'
 import { Play } from "lucide-react";
 import { useNavigate } from "react-router";
+import Loading from "./loading";
 
 interface prop {
     id:string
@@ -53,8 +54,8 @@ export const Movie:React.FC<prop> = ({id}) => {
         })
 
         if(films.length == 0 ){
-            return <div className="text-white">
-                ...Loading
+            return <div className="bg-black h-[100vh] w-[100vw] flex justify-center items-center">
+                <Loading/>
             </div>
         }
         if(error){
