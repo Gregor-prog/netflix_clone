@@ -11,18 +11,21 @@ import { ChevronDown, Search } from "lucide-react"
 import { useNavigate } from "react-router"
 import IsLogincontext from "../isLogincontext"
 import { Searchcomp } from "./search"
+import Okay from "./okay"
 
 interface navProp{
     avatar:number,
-    id:string
+    id:string,
+    movie:object[]
 }
 
-const  NavBar : React.FC<navProp> = ({avatar,id}) => {
+const  NavBar : React.FC<navProp> = ({avatar,id,movie}) => {
     const [side,setside] = useState(true)
     const [isLogin,setisLogin] = useContext(IsLogincontext)
     const [search,setsearch] = useState(false)
 
     function Searchfunc(){
+        console.log(search)
         setsearch(!search)
     }
 
@@ -71,8 +74,7 @@ const  NavBar : React.FC<navProp> = ({avatar,id}) => {
     const pic = [net_1,net_2,net_3,net_4,net_5,net_6,net_7]
     return <div className="h-[70px] w-[100%] fixed z-20  backdrop-blur-xl top-0 flex flex-row items-center p-[30px]  bg-[#2c2c2c3f]" >
          <p className="text-red-600 text-[50px] font-bold ml-3">NETFLIX</p>
-         <Searchcomp />
-        
+         {search && <Searchcomp movie={movie} id={id} />}
         <div onClick={sideba} className="z-20 md:hidden block absolute text-white right-[5%]">
         {!side?<img className="size-9 bg-white p-2 rounded-xl"  src="https://img.icons8.com/ios-filled/50/menu--v1.png" alt="menu--v1"/>:
         <img className="size-9 bg-white p-2 rounded-xl" src="https://img.icons8.com/material-outlined/24/cancel--v1.png" alt="cancel--v1"/>}
@@ -87,7 +89,7 @@ const  NavBar : React.FC<navProp> = ({avatar,id}) => {
         </div>:null}
 
         <div className="flex flex-row items-center justify-center md:gap-6 gap-3 md:ml-none absolute right-[14%] md:right-[1%] w-[30%] ">
-                <Search className="text-white"/>
+                <Search className="text-white" onClick={() => Searchfunc()}/>
                 <div className="flex flex-row items gap-1.5 hover:bg-[#80808073] p-[5px] rounded-[12px]">
                 <img src={pic[avatar]} alt="" className="h-[25px] rounded-[6px]"/>
                 <ChevronDown className="text-white" onClick={() => logoutTab()}/>

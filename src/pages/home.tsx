@@ -61,6 +61,9 @@ function Home(){
             }
     }
 
+
+
+
     useEffect(() => {
         if(!isLogin){
             Navigate("/",{replace:true})
@@ -112,6 +115,7 @@ function Home(){
 
     },[])
 
+
    
 
         
@@ -129,7 +133,7 @@ function Home(){
     console.log(display)
 
     return <div className="bg-black">
-       <NavBar avatar = {index} id = {id} />
+       <NavBar avatar = {index} id = {id} movie = {movie}/>
      <div className=" w-[100vw] bg-[black] z-[-3] h-[100vh] sm:overflow-hidden  ">
     
        <video src={display.video} ref={bgvideoRef} autoPlay loop className="sm:absolute mt-[60px] sm:mt-auto top-0 left-0 pointer-events-none  min-w-full "></video>
@@ -167,3 +171,4 @@ function Home(){
     </div>
 }
 export default Home
+
