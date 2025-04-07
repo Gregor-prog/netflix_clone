@@ -56,7 +56,7 @@ export function Signin(){
      
     if(isLoading){
         console.log(isLoading)
-        return <div className="bg-black h-[100vh] flex items-center justify-center"><Loading/></div>
+        return <div className="bg-black h-[100vh] w-[100vw] flex items-center justify-center"><Loading/></div>
     }
 
     if(error){
