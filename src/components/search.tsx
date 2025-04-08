@@ -17,7 +17,7 @@ export const Searchcomp : React.FC<prop> = ({movie,id}) => {
 function movieD(id:string,userID:string){
     navigate(`/movie?id=${id}&userID=${userID}`)
 }
-    return <div className="fixed overflow-y-scroll z-50 top-17 w-[100vw] ml-[-30px] flex flex-col items-center bg-[#0000008e] h-[100vh] backdrop-blur-2xl">
+    return <div className="fixed overflow-y-scroll z-50 top-17 w-[100vw] ml-[-30px] flex flex-col items-center bg-[#000000ce] h-[100vh] backdrop-blur-2xl">
   <div className="w-[80%] sm:w-[50%] relative mb-6">
   <input 
   type="text" 
@@ -28,9 +28,9 @@ function movieD(id:string,userID:string){
     <FaSearch className="size-6 text-white absolute top-0 mt-[43px] right-[30px] "/>
   </div>
 
-        {search.length > 0?<div className="grid grid-cols-5 w-[100%] p-5">
+        {search.length > 0?<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 w-[100%] p-5">
             {movie.filter((item:any) => item.title.toLowerCase().includes(search.toLowerCase())).map((mov:any) => (
-                <div className="bg-cover xl:w-[230px] xl:h-[400px] lg:w-[190px] lg:h-[300px] md:w-[140px] md:h-[260px] my-3  bg-center h-[150px] overflow-hidden z-50 h w-[100px] rounded-3xl shadow-xs bg-black shadow-red-500" onClick={() => {movieD(mov._id,id)}} >
+                <div className="bg-cover xl:w-[230px] xl:h-[400px] lg:w-[190px] lg:h-[300px] md:w-[140px] md:h-[260px] my-3  bg-center h-[150px] overflow-hidden z-50 h w-[100px] rounded-xl shadow-xs bg-black" onClick={() => {movieD(mov._id,id)}} >
                 <img src={`https://image.tmdb.org/t/p/w500${mov.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                 <div className="p-2">
             <p className="text-[white] text-3xl font-semibold">{mov.title}</p>

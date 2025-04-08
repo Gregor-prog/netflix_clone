@@ -16,7 +16,7 @@ import IsLogincontext from "../isLogincontext"
             if(password == ""){
                 throw new Error("password field is empty");
             }
-            const post = await fetch("http://localhost:4000/users/signin", {
+            const post = await fetch("https://netflix-backend-qegm.onrender.com/users/signin", {
                 method:"POST",
                 headers:{
                     "Content-type":'application/json'

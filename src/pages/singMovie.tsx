@@ -39,7 +39,7 @@ export function SingleMovie(){
 
     async function addFav(){
         try {
-           const addFav =  await fetch(`http://localhost:4000/movie/addFavourite?userID=${userID}&id=${id},`, {
+           const addFav =  await fetch(`https://netflix-backend-qegm.onrender.com/movie/addFavourite?userID=${userID}&id=${id},`, {
                 method:'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export function SingleMovie(){
 
     async function addWish() {
         try {
-            const addWish =  await fetch(`http://localhost:4000/movie/adelWish?userID=${userID}&id=${id},`, {
+            const addWish =  await fetch(`https://netflix-backend-qegm.onrender.com/movie/adelWish?userID=${userID}&id=${id},`, {
                 method:'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -78,9 +78,9 @@ export function SingleMovie(){
     useEffect(() => {
         async function fetchMovie(){
            try {
-            const res = await fetch(`http://localhost:4000/movie/fetchMovies?id=${id}`)
-            const fav = await fetch(`http://localhost:4000/movie/Favourite?userId=${userID}`)
-            const wish = await fetch(`http://localhost:4000/movie/fetchWishes?userId=${userID}`)
+            const res = await fetch(`https://netflix-backend-qegm.onrender.com/movie/fetchMovies?id=${id}`)
+            const fav = await fetch(`https://netflix-backend-qegm.onrender.com/movie/Favourite?userId=${userID}`)
+            const wish = await fetch(`https://netflix-backend-qegm.onrender.com/movie/fetchWishes?userId=${userID}`)
             if(!res.ok){
                 throw new Error("an error occurred, couldn't detch movie");
             }

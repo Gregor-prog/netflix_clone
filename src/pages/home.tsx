@@ -72,7 +72,7 @@ function Home(){
             try {
                 console.log("him")
                 console.log(id)
-                const user = await fetch("http://localhost:4000/users/User", ({
+                const user = await fetch("https://netflix-backend-qegm.onrender.com/users/User", ({
                     method:"POST",
                     headers:{
                         "Content-type":"application/json"
@@ -82,7 +82,7 @@ function Home(){
                     })
                 }))
     
-                const movie = await fetch("http://localhost:4000/movie/fetchMovies")
+                const movie = await fetch("https://netflix-backend-qegm.onrender.com/movie/fetchMovies")
 
                 if(!user.ok){
                     throw new Error("couldn't fetch Users");
@@ -134,7 +134,7 @@ function Home(){
 
     return <div className="bg-black">
        <NavBar avatar = {index} id = {id} movie = {movie}/>
-     <div className=" w-[100vw] bg-[black] z-[-3] h-[100vh] sm:overflow-hidden  ">
+     <div className=" w-[100vw] bg-[black] z-[-3] sm:h-[100vh] h-[50vh] sm:overflow-hidden  ">
     
        <video src={display.video} ref={bgvideoRef} autoPlay loop className="sm:absolute mt-[60px] sm:mt-auto top-0 left-0 pointer-events-none  min-w-full "></video>
        <div className="z-4 absolute text-white sm:p-[100px] p-[20px]   sm:pt-[200px] bg-[#00000033]">

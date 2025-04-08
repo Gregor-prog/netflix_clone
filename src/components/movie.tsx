@@ -37,7 +37,7 @@ export const Movie:React.FC<prop> = ({id}) => {
         useEffect(() => {
             async function fetchMovie(){
                 try {
-                    const movie = await fetch("http://localhost:4000/movie/fetchMovies")
+                    const movie = await fetch("https://netflix-backend-qegm.onrender.com/movie/fetchMovies")
                     if(!movie.ok){
                         throw new Error("movie not fetched");
                     }
@@ -68,31 +68,20 @@ export const Movie:React.FC<prop> = ({id}) => {
         <p className="text-center w-fulll text-white">RECOMMENDED MOVIES</p>
         <div className="my-7">
         <p className="m-3 text-4xl font-bold text-[#E50914]">Action</p>
-            <Splide options={{
-        perPage: 5,        // Number of visible slides
-        perMove: 1,        // Move one slide at a time
-        gap: "1rem",       // Space between slides
-        pagination: false, // Hide pagination dots
-        arrows: true,      // Show navigation arrows
-        drag: "free",      // Allow smooth scrolling
-        breakpoints: {
-            1024: { perPage: 5 },
-            768: { perPage: 4 },
-            480: { perPage: 3 },
-        }
-    }}>
+            
+                <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
                 {films.map((film:filmType,index) => (
-                film.type == 'Action'? <SplideSlide>
-                         <div className="bg-cover xl:w-[230px] xl:h-[350px] lg:w-[190px] lg:h-[300px] md:w-[140px] md:h-[260px]  bg-center h-[150px] overflow-hidden z-50 h w-[100px] rounded-3xl shadow-xs bg-black shadow-red-500" onClick={() => {movieD(film._id,id)}} >
+                film.type == 'Action'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
+                            <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
-                            <div className="p-2">
-                        <p className="text-[white] text-3xl font-semibold">{film.title}</p>
-                        <Truncate lines={1} className="text-[#E50914] font-semibold ">{film.overview}</Truncate>
                             </div>
-                    </div> 
-                </SplideSlide>:null
+                            <div className="p-2 bottom-[-200px] w-full   group-hover:bottom-0 transition-all bg-[black] absolute">
+                        <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
+                        <Truncate lines={1} className="text-[#E50914] m-0 p-0 text-[12px] md:text-[15px]  ">{film.overview}</Truncate>
+                            </div>
+                    </div> :null
                 ))}
-                </Splide>
+                </div>
         </div>
 
 

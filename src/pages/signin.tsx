@@ -31,7 +31,7 @@ export function Signin(){
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const response = await fetch("http://localhost:4000/users/getUsers")
+                const response = await fetch("https://netflix-backend-qegm.onrender.com/users/getUsers")
                 const data = await response.json()
                 console.log(data.data)
                 setusers(data.data.users)

@@ -37,8 +37,8 @@ function Favourites(){
     useEffect(() => {
         async function fetchFavourites(){
             try {
-                const fav = await fetch(`http://localhost:4000/movie/Favourite?userId=${id}`)
-                const movies = await fetch(`http://localhost:4000/movie/fetchMovies`)
+                const fav = await fetch(`https://netflix-backend-qegm.onrender.com/movie/Favourite?userId=${id}`)
+                const movies = await fetch(`https://netflix-backend-qegm.onrender.com/movie/fetchMovies`)
             if(!fav.ok || !movies.ok){
                 throw new Error("couldn't fetch favourites")
             }{
