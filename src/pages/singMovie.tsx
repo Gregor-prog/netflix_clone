@@ -2,7 +2,7 @@ import { useEffect,useRef,useState } from "react"
 import { useLocation, useNavigate } from "react-router"
 import { movieType } from "../types"
 import { Play } from "lucide-react"
-import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle,AiFillBackward } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle } from "react-icons/ai";
 import Loading from "../components/loading";
 type favo = {
     movieId:string
@@ -76,9 +76,9 @@ export function SingleMovie(){
         }   
     }
 
-    function goBack(){
-        navigate("/Home")
-    }
+    // function goBack(){
+    //     navigate("/Home")
+    // }
 
     useEffect(() => {
         async function fetchMovie(){
