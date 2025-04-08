@@ -22,10 +22,11 @@ export function SingleMovie(){
     const queryParams = new URLSearchParams(location.search)
     const id = queryParams.get("id")
     const userID = queryParams.get("userID")
+    const [movDialog,setmoviedialog] = useState(true)
 
     function toggleVideo(){
         if(videoRef.current && vRef.current){
-            videoRef.current.style.display = 'block'
+            videoRef.current.style.display = 'flex'
             vRef.current.play()
         }
     }
@@ -126,31 +127,38 @@ export function SingleMovie(){
     }
 
     return <div>
-             <div className="w-[100vw] relative flex flex-col items-center justify-center left-0 z-30 bg-[#00000080]  backdrop-blur-lg">
+             <div className="w-[100vw]  flex flex-col items-center justify-center left-0 z-30 bg-[#00000080]">
                         <div className="w-[100%] bg-[#000000] m-auto overflow-hidden p-10">
-                            {/* <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className="w-[70%] mx-auto"/> */}
-                            <video src={movie.video} autoPlay loop controls className="mx-auto"></video>
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className="w-[70%] mx-auto"/>
+                            {/* <video src={movie.video} autoPlay loop  className="mx-auto"></video> */}
+                            <div className="flex flex-row items-center justify-between w-[100%]">
                             <p className="text-3xl font-bold text-white pl-4"><span className="text-[#df0e0e]">Title: </span>{movie.title}</p>
+                            <div className="flex flex-row items-center gap-2">
+                            <div onClick={() => addFav()} style={{ fontSize: "24px", cursor: "pointer" }} className="">
+                            {favourite?<AiFillHeart color="white"  className="size-9"/> : <AiOutlineHeart color="white" className="size-9"/>}
+                                </div>
+
+                                <div onClick={() => addWish()} style={{ fontSize: "24px", cursor: "pointer" }} className="">
+                                    {wish?<AiFillPlusCircle color="white"  className="size-9"/> : <AiOutlinePlus color="white" className="size-9"/>}
+                                </div>
+                            <button onClick={() => {toggleVideo()}}  className="bg-white cursor-pointer text-black font-bold flex items-center justify-evenly px-[12px] py-[3px] rounded-[6px] m-5"><Play/>Play</button>
+                            </div>
+                            </div>
+                 
                             <p className="font-semibold text-white p-1 px-3"><span className="text-[#df0e0e]">Overview: </span>{movie.overview}</p>
                             <p className="font-semibold text-white p-1 px-3"><span className="text-[#df0e0e]">Release date: </span>{movie.release_date}</p>
                             <p className="font-semibold text-white p-1 px-3"><span className="text-[#df0e0e]">Language: </span>{movie.original_language}</p>
                             <p className="font-semibold text-white p-1 px-3"><span className="text-[#df0e0e]">Category: </span>{movie.type}</p>
                             <div className="flex gap-4 px-4">
 
-                                <div onClick={() => addFav()} style={{ fontSize: "24px", cursor: "pointer" }}>
-                            {favourite?<AiFillHeart color="white"  className="size-9"/> : <AiOutlineHeart color="white" className="size-9"/>}
-                                </div>
-
-                                <div onClick={() => addWish()} style={{ fontSize: "24px", cursor: "pointer" }}>
-                                    {wish?<AiFillPlusCircle color="white"  className="size-9"/> : <AiOutlinePlus color="white" className="size-9"/>}
-                                </div>
+                                
                             </div>
-            <button onClick={() => {toggleVideo()}}  className="bg-white cursor-pointer text-black font-bold flex items-center justify-evenly px-[12px] py-[3px] rounded-[6px] m-5"><Play/>Play</button>
                         </div>
                         {/* play video */}
-        <div className="fixed w-full h-full z-50 top-0 items-center justify-center hidden bg-black" ref={videoRef}>
-            <p className="text-white font-bold absolute top-5 left-5"  onClick={() => {cVideo()}}>X</p>
-            <video src={movie.video} controls loop className="w-[80%] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]" ref={vRef}></video>
+        <div className="fixed w-full h-[100vh] z-50 top-0 items-center justify-center hidden backdrop-blur-xl  bg-[#1616163b]" ref={videoRef}>
+            <p className="text-white font-bold absolute top-5 left-5 cursor-pointer"  onClick={() => {cVideo()}}>X</p>
+            <p className="text-white font-bold ml-28">Now Watching: <span>{movie.title}</span></p>
+            <video src={movie.video} controls loop autoPlay className="w-[80%] absolute top-[52%] left-[50%] translate-y-[-50%] translate-x-[-50%]" ref={vRef}></video>
         </div>
        
 

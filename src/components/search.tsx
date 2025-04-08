@@ -39,6 +39,8 @@ function movieD(id:string,userID:string){
             </div> 
             ) )}
 
-        </div> :null}
+        </div> :
+        <div className="flex justify-center items-center h-[10vh] w-[100vw]">
+            <p className="text-white text-3xl font-semibold">No movies found...</p></div>}
     </div>
 }

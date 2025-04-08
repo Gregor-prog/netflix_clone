@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import {Truncate } from '@re-dev/react-truncate'
 import Loading from "../components/loading"
+import { AiFillHeart,  } from "react-icons/ai";
 
 type favo = {
     movieId:string  
@@ -74,14 +75,18 @@ function Favourites(){
 
 
     return <div className="bg-black h-[100vh] overflow-y-scroll">
+            <p className="text-white font-bold text-3xl pt-14 pl-10">Favourites <AiFillHeart className="inline-block"/></p>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 p-4">
             {favourites.map((fav:favo) => movie.map((mov:movieType) => (
-                fav.movieId == mov._id? <div key={mov._id} className="relative my-9  cursor-pointer" onClick={() => {movieD(mov._id,id)}}>
-                    <img src={`https://image.tmdb.org/t/p/original${mov.poster_path}`} alt="" className="w-full h-full rounded-md" />
-                    <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-                    <p className="absolute bottom-4 left-4 text-white font-bold">{mov.title}</p>
-                    <Truncate lines={2} className="text-[#E50914] font-semibold ">{mov.overview}</Truncate>
-                </div>:null
+                fav.movieId == mov._id? <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(mov._id,id)}} >
+                <div className=" hover:w-auto">
+                <img src={`https://image.tmdb.org/t/p/w500${mov.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
+                </div>
+                <div className="p-2 md:bottom-[-200px] w-full bottom-0   group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+            <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{mov.title}</p>
+            <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[12px] md:text-[15px]  ">{mov.overview}</Truncate>
+                </div>
+        </div>:null
             )))}
 
         </div>
