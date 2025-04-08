@@ -130,7 +130,7 @@ export const Movie:React.FC<prop> = ({id}) => {
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                             </div>
-                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[33%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[35%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
                         <p className="text-[white] text-[10px]  md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
                         <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[8px] md:text-[15px] absolute sm:static">{film.overview}</Truncate>
                             </div>
