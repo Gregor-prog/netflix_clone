@@ -77,7 +77,7 @@ export function SingleMovie(){
     }
 
     function goBack(){
-        navigate("/home")
+        navigate("/Home")
     }
 
     useEffect(() => {
@@ -132,7 +132,7 @@ export function SingleMovie(){
 
     return <div>
              <div className="w-[100vw]  flex flex-col items-center justify-center left-0 z-30 bg-[#00000080]">
-                <p className="w-[100%] text-right bg-black text-white"><AiFillBackward className="text-white size-10 ml-3" onClick={() => {goBack()}}/></p>
+                {/* <p className="w-[100%] text-right bg-black text-white"><AiFillBackward className="text-white size-10 ml-3" onClick={() => {goBack()}}/></p> */}
                         <div className="w-[100%] bg-[#000000] m-auto overflow-hidden p-5 sm:p-10">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className="w-[100%] ml:w-[70%] mx-auto"/>
                             {/* <video src={movie.video} autoPlay loop  className="mx-auto"></video> */}
