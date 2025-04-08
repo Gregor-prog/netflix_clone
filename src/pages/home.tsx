@@ -10,6 +10,8 @@ import Loading from "../components/loading"
 
 function Home(){
 
+    
+
     type user = {
         _id:string,
         name:string
@@ -17,6 +19,10 @@ function Home(){
 
     const [isLogin] = useContext(IsLogincontext)
     const Navigate = useNavigate()
+    if(!isLogin){
+        console.log("real sha")
+        Navigate("/")
+    }
     const {id,index} = useLocation().state as any
     const [user,setuser] = useState<user|null>(null)
     const [movie,setmovie] = useState<movieType[]>([])
@@ -66,6 +72,7 @@ function Home(){
 
     useEffect(() => {
         if(!isLogin){
+            console.log("real sha")
             Navigate("/",{replace:true})
         }
         async function fetchUser(){

@@ -69,13 +69,13 @@ export const Movie:React.FC<prop> = ({id}) => {
             
                 <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
                 {films.map((film:filmType) => (
-                film.type == 'Action'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
+                film.type == 'Action'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block w-[100%]   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                             </div>
-                            <div className="p-2 md:bottom-[-200px] w-full bottom-0   group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
-                        <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
-                        <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[12px] md:text-[15px]  ">{film.overview}</Truncate>
+                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[30%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+                        <p className="text-[white] text-[10px]  md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
+                        <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[8px] md:text-[15px] absolute sm:static">{film.overview}</Truncate>
                             </div>
                     </div> :null
                 ))}
@@ -92,9 +92,9 @@ export const Movie:React.FC<prop> = ({id}) => {
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                             </div>
-                            <div className="p-2 md:bottom-[-200px] w-full bottom-0  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#00000083] absolute">
-                        <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
-                        <Truncate lines={1} className="text-[#E50914] m-0 p-0 text-[12px] md:text-[15px]  ">{film.overview}</Truncate>
+                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[30%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+                        <p className="text-[white] text-[10px]  md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
+                        <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[8px] md:text-[15px] absolute sm:static">{film.overview}</Truncate>
                             </div>
                     </div> :null
                 ))}
@@ -112,9 +112,9 @@ export const Movie:React.FC<prop> = ({id}) => {
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                             </div>
-                            <div className="p-2 md:bottom-[-200px] w-full bottom-0    group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#00000083] absolute">
-                        <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
-                        <Truncate lines={1} className="text-[#E50914] m-0 p-0 text-[12px] md:text-[15px]  ">{film.overview}</Truncate>
+                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[30%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+                        <p className="text-[white] text-[10px]  md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
+                        <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[8px] md:text-[15px] absolute sm:static">{film.overview}</Truncate>
                             </div>
                     </div> :null
                 ))}
@@ -130,9 +130,9 @@ export const Movie:React.FC<prop> = ({id}) => {
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
                             </div>
-                            <div className="p-2 md:bottom-[-200px] w-full bottom-0   group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#00000083] absolute">
-                        <p className="text-[white] text-[15px] md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
-                        <Truncate lines={1} className="text-[#E50914] m-0 p-0 text-[12px] md:text-[15px]  ">{film.overview}</Truncate>
+                            <div className="sm:p-2 p-1 rounded-b-xl overflow-hidden md:bottom-[-200px] w-full bottom-0 h-[30%] sm:h-auto  group-hover:bottom-0 transition-all backdrop-blur-sm bg-[#0000001a] absolute">
+                        <p className="text-[white] text-[10px]  md:text-xl lg:text-3xl m-0 p-0 font-medium">{film.title}</p>
+                        <Truncate lines={1} className="text-[#E50914] font-medium m-0 p-0 text-[8px] md:text-[15px] absolute sm:static">{film.overview}</Truncate>
                             </div>
                     </div> :null
                 ))}

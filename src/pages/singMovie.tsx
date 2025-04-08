@@ -1,8 +1,8 @@
 import { useEffect,useRef,useState } from "react"
-import { useLocation } from "react-router"
+import { useLocation, useNavigate } from "react-router"
 import { movieType } from "../types"
 import { Play } from "lucide-react"
-import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle,AiFillBackward } from "react-icons/ai";
 import Loading from "../components/loading";
 type favo = {
     movieId:string
@@ -22,6 +22,7 @@ export function SingleMovie(){
     const queryParams = new URLSearchParams(location.search)
     const id = queryParams.get("id")
     const userID = queryParams.get("userID")
+    const navigate = useNavigate()
 
     function toggleVideo(){
         if(videoRef.current && vRef.current){
@@ -73,6 +74,10 @@ export function SingleMovie(){
         } catch (error) {
             
         }   
+    }
+
+    function goBack(){
+        navigate("/home")
     }
 
     useEffect(() => {
@@ -127,11 +132,12 @@ export function SingleMovie(){
 
     return <div>
              <div className="w-[100vw]  flex flex-col items-center justify-center left-0 z-30 bg-[#00000080]">
-                        <div className="w-[100%] bg-[#000000] m-auto overflow-hidden p-10">
-                            <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className="w-[70%] mx-auto"/>
+                <p className="w-[100%] text-right bg-black text-white"><AiFillBackward className="text-white size-10 ml-3" onClick={() => {goBack()}}/></p>
+                        <div className="w-[100%] bg-[#000000] m-auto overflow-hidden p-5 sm:p-10">
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className="w-[100%] ml:w-[70%] mx-auto"/>
                             {/* <video src={movie.video} autoPlay loop  className="mx-auto"></video> */}
-                            <div className="flex flex-row items-center justify-between w-[100%]">
-                            <p className="text-3xl font-bold text-white pl-4"><span className="text-[#df0e0e]">Title: </span>{movie.title}</p>
+                            <div className="flex flex-row items-center gap-4 w-[100%]">
+                            <p className="text-xl sm:text-3xl font-bold text-white pl-4"><span className="text-[#df0e0e]">Title: </span>{movie.title}</p>
                             <div className="flex flex-row items-center gap-2">
                             <div onClick={() => addFav()} style={{ fontSize: "24px", cursor: "pointer" }} className="">
                             {favourite?<AiFillHeart color="white"  className="size-9"/> : <AiOutlineHeart color="white" className="size-9"/>}
