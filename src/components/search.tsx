@@ -1,13 +1,9 @@
 import { useState } from "react"
 import { FaSearch } from "react-icons/fa"
-import { useLocation,useNavigate } from "react-router"
+import {useNavigate } from "react-router"
 type prop = {
     movie:object[],
     id:string
-}
-type movieType = {
-    _id:string,  
-    title:string,
 }
 
 export const Searchcomp : React.FC<prop> = ({movie,id}) => {

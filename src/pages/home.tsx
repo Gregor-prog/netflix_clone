@@ -15,7 +15,7 @@ function Home(){
         name:string
     }
 
-    const [isLogin,setisLogin] = useContext(IsLogincontext)
+    const [isLogin] = useContext(IsLogincontext)
     const Navigate = useNavigate()
     const {id,index} = useLocation().state as any
     const [user,setuser] = useState<user|null>(null)

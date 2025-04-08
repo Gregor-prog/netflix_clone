@@ -22,7 +22,6 @@ export function SingleMovie(){
     const queryParams = new URLSearchParams(location.search)
     const id = queryParams.get("id")
     const userID = queryParams.get("userID")
-    const [movDialog,setmoviedialog] = useState(true)
 
     function toggleVideo(){
         if(videoRef.current && vRef.current){

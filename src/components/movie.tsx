@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {Truncate } from '@re-dev/react-truncate'
-import { Play } from "lucide-react";
 import { useNavigate } from "react-router";
 import Loading from "./loading";
 
@@ -70,7 +68,7 @@ export const Movie:React.FC<prop> = ({id}) => {
         <p className="m-3 text-4xl font-bold text-[#E50914]">Action</p>
             
                 <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
-                {films.map((film:filmType,index) => (
+                {films.map((film:filmType) => (
                 film.type == 'Action'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
@@ -89,7 +87,7 @@ export const Movie:React.FC<prop> = ({id}) => {
         <p className="m-3 text-4xl font-bold text-[#E50914]">Sci-fi</p>
             
                 <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
-                {films.map((film:filmType,index) => (
+                {films.map((film:filmType) => (
                 film.type == 'Sci-fi'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
@@ -109,7 +107,7 @@ export const Movie:React.FC<prop> = ({id}) => {
         <p className="m-3 text-4xl font-bold text-[#E50914]">Romance</p>
             
                 <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
-                {films.map((film:filmType,index) => (
+                {films.map((film:filmType) => (
                 film.type == 'Romance'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
@@ -127,7 +125,7 @@ export const Movie:React.FC<prop> = ({id}) => {
         <p className="m-3 text-4xl font-bold text-[#E50914]">Animation</p>
             
                 <div className="grid grid-cols-3 sm:grid-cols-4 ml:grid-cols-5 gap-4">
-                {films.map((film:filmType,index) => (
+                {films.map((film:filmType) => (
                 film.type == 'Animation'?  <div className="bg-cover group relative hover:w-[] my-3 hover:block   bg-center  overflow-hidden  rounded-xl shadow-xs bg-black " onClick={() => {movieD(film._id,id)}} >
                             <div className=" hover:w-auto">
                             <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="not" className="w-[100%] h-[100%]"/>
