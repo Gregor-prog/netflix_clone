@@ -1,6 +1,8 @@
 import { useContext, useState } from "react"
 // import { useNavigate } from "react-router-dom"
 import IsLogincontext from "../isLogincontext"
+import { Toaster, toast } from 'sonner';
+
 
  function Signup(){
     const [email,setemail] = useState("")
@@ -36,18 +38,19 @@ import IsLogincontext from "../isLogincontext"
             }
 
             if(post.ok){
-                alert("login successful")
+                toast.success("Login successfully")
                 console.log(post.ok)
                 setisLogin(true)
             }
         } catch (error) {
             if(error){
                 console.log(error)
-                alert(error)
+                toast.error("email or password is incorrect")
             }
         }
     }
     return <div className="w-[100%] flex flex-row items-center justify-center mt-[20%] sm:mt-[5%]">
+        <Toaster />
         <form onSubmit={(e) => submit(e)} action="" className="sm:w-[45%] w-[90%] bg-[#000000b2] p-4 flex flex-col items-center h-[400px] justify-evenly">
             <h1 className="text-[25px] text-[white] font-semibold ">Sign In</h1>
             <input type="email" value={email} onChange={(e) => setemail(e.target.value)}  className="w-[80%] h-[40px] rounded-[12px] bg-white text-black p-2 " placeholder="Enter your email"/>
