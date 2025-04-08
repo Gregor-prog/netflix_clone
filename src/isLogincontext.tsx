@@ -1,4 +1,4 @@
-import { useContext, createContext, useState,SetStateAction,ReactNode,FC } from "react"
+import { createContext, useState,SetStateAction,ReactNode,FC } from "react"
 
 type authContextType = [boolean,React.Dispatch<SetStateAction<boolean>> ]
 interface providerPropType {

@@ -11,7 +11,6 @@ import { ChevronDown, Search } from "lucide-react"
 import { useNavigate } from "react-router"
 import IsLogincontext from "../isLogincontext"
 import { Searchcomp } from "./search"
-import bebas from "../assets/fonts/BebasNeue.otf"
 interface navProp{
     avatar:number,
     id:string,
@@ -50,7 +49,7 @@ const  NavBar : React.FC<navProp> = ({avatar,id,movie}) => {
    
     function sideba(){
         setside(!side)
-        console.log
+        console.log(isLogin)
     }
 
     function toFav(){
