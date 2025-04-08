@@ -20,10 +20,11 @@ function Home(){
     const [isLogin] = useContext(IsLogincontext)
     const Navigate = useNavigate()
     if(!isLogin){
-        console.log("real sha")
+        console.log()
         Navigate("/")
     }
-    const {id,index} = useLocation().state as any
+    const {id,avatar} = useLocation().state as any
+    const [stateId,setstateId] = useState(id)
     const [user,setuser] = useState<user|null>(null)
     const [movie,setmovie] = useState<movieType[]>([])
     const [error,seterror] = useState<Error|null>(null)
@@ -77,6 +78,7 @@ function Home(){
         }
         async function fetchUser(){
             try {
+                setstateId(stateId)
                 console.log("him")
                 console.log(id)
                 const user = await fetch("https://netflix-backend-qegm.onrender.com/users/User", ({
@@ -85,7 +87,7 @@ function Home(){
                         "Content-type":"application/json"
                     },
                     "body":JSON.stringify({
-                        _id: id
+                        _id: stateId
                     })
                 }))
     
@@ -140,7 +142,7 @@ function Home(){
     console.log(display)
 
     return <div className="bg-black">
-       <NavBar avatar = {index} id = {id} movie = {movie}/>
+       <NavBar avatar = {avatar} id = {id} movie = {movie}/>
      <div className=" w-[100vw] bg-[black] z-[-3] sm:h-[100vh] h-[50vh] sm:overflow-hidden  ">
     
        <video src={display.video} ref={bgvideoRef} autoPlay loop className="sm:absolute mt-[60px] sm:mt-auto top-0 left-0 pointer-events-none  min-w-full "></video>

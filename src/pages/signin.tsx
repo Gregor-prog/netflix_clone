@@ -7,6 +7,7 @@ import net_6 from "../assets/images/netflix 6.png"
 import net_7 from "../assets/images/netflix 7.jpeg"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import { Toaster, toast } from 'sonner';
 import Loading from "../components/loading"
 
 type item = {
@@ -19,11 +20,11 @@ export function Signin(){
     const [error, seterror] = useState<Error | null >(null)
     const navigate = useNavigate()
 
-    function goHome([id,index]: [any,number]){
-
+    function goHome([id,avatar]: [any,number]){
+        toast.success("Login successfully")
         console.log(id)
         navigate(`/Home`, {
-            state: {id,index}
+            state: {id,avatar}
         })
         return undefined
     }
@@ -67,6 +68,7 @@ export function Signin(){
     const avatars = [net_1,net_2,net_3,net_4,net_5,net_6,net_7]
     
     return <div className="flex flex-col items-center w-full h-full bg-black p-10 ">
+        <Toaster position="top-center" richColors/>
         <p className="text-red-600 text-[50px] font-bold mb-10">NETFLIX</p>
         <p className="text-white font-bold mb-5 text-[20px]">Who's Watching?</p>
         a

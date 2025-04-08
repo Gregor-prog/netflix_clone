@@ -46,12 +46,14 @@ import { Toaster, toast } from 'sonner';
             if(error){
                 console.log(error)
                 toast.error("email or password is incorrect")
+            }else{
+                toast.success("Login successfully")
             }
         }
     }
     return <div className="w-[100%] flex flex-row items-center justify-center mt-[20%] sm:mt-[5%]">
-        <Toaster />
-        <form onSubmit={(e) => submit(e)} action="" className="sm:w-[45%] w-[90%] bg-[#000000b2] p-4 flex flex-col items-center h-[400px] justify-evenly">
+        <Toaster position="top-center" richColors/>
+        <form onSubmit={(e) => submit(e)} action="" className="sm:w-[35%] w-[90%] bg-[#000000b2] p-4 flex flex-col items-center h-[400px] justify-evenly">
             <h1 className="text-[25px] text-[white] font-semibold ">Sign In</h1>
             <input type="email" value={email} onChange={(e) => setemail(e.target.value)}  className="w-[80%] h-[40px] rounded-[12px] bg-white text-black p-2 " placeholder="Enter your email"/>
             <div className="w-[80%] text-right">

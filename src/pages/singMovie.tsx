@@ -4,6 +4,8 @@ import { movieType } from "../types"
 import { Play } from "lucide-react"
 import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle } from "react-icons/ai";
 import Loading from "../components/loading";
+import { Toaster, toast } from 'sonner';
+import NavBar from "../components/navBar";
 type favo = {
     movieId:string
 }
@@ -51,8 +53,12 @@ export function SingleMovie(){
             })
             sethtmmlfavoutite(!favourite)
             console.log(await addFav.json())
+            toast.success("Added to favourite")
         } catch (error) {
-            
+            if(error){
+                console.log(error)
+                toast.error("Couldn't add to favourite")
+            }
         }
     }
 
@@ -70,8 +76,12 @@ export function SingleMovie(){
             })
             setwishList(!wish)
             console.log(addWish.json())
+            toast.success("Added to wishlist")
         } catch (error) {
-            
+            if(error){
+                console.log(error)
+                toast.error("Couldn't add to wishlist") 
+            }
         }   
     }
 
@@ -130,6 +140,7 @@ export function SingleMovie(){
     }
 
     return <div>
+         <Toaster position="top-center" richColors/>
              <div className="w-[100vw]  flex flex-col items-center justify-center left-0 z-30 bg-[#00000080]">
                 {/* <p className="w-[100%] text-right bg-black text-white"><AiFillBackward className="text-white size-10 ml-3" onClick={() => {goBack()}}/></p> */}
                         <div className="w-[100%] bg-[#000000] m-auto overflow-hidden p-5 sm:p-10">

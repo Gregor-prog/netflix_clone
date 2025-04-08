@@ -58,6 +58,11 @@ const  NavBar : React.FC<navProp> = ({avatar,id,movie}) => {
     function toWishes(){
         navigation(`/wishList?id=${id}`)
     }
+    function toHome(){
+        navigation(`/Home`, {
+            state: {id,avatar}
+        })
+    }
 
 
     
@@ -80,7 +85,7 @@ const  NavBar : React.FC<navProp> = ({avatar,id,movie}) => {
         </div>
         
         {side?<div className="flex md:bg-transparent divide-y md:divide-y-0 rounded-2xl divide-gray-200 bg-white absolute top-[70px] right-5 z-40 md:static md:flex-row flex-col md:h-auto  md:mt-[0px] md:ml-[0px] items-center justify-evenly w-[30%] md:w-[50%]">
-            <a href="#" className="w-[100%] text-center"><p className="text-[15px] md:ml-2 md:rounded-2xl md:text-[20px] py-2 text-[black] md:text-white font-semibold hover:bg-[#ff000062] w-[100%] hover:text-white">Home</p></a>
+            <p className="text-center text-[15px] md:ml-2 md:rounded-2xl md:text-[20px] py-2 text-[black] md:text-white font-semibold hover:bg-[#ff000062] w-[100%] hover:text-white" onClick={() => {toHome()}}>Home</p>
             <p className="text-[15px] md:text-[20px] py-2 text-center text-[black] md:rounded-2xl  md:text-white font-semibold hover:bg-[#ff000062] w-[100%] hover:text-white" onClick={() => {toFav()}}>Favorites</p>
             <p className="text-[15px] md:text-[20px] py-2 text-center text-[black] md:rounded-2xl md:text-white font-semibold hover:bg-[#ff000062] w-[100%] hover:text-white" onClick={() => {toWishes()}}>Wish Lists</p>
             <a href="#" className="w-[100%]"><p className="text-[15px] md:text-[20px] md:rounded-2xl py-2 text-center text-[black] md:text-white font-semibold hover:bg-[#ff000062] w-[100%] hover:text-white">About</p></a>
