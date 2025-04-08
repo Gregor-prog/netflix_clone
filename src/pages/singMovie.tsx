@@ -5,7 +5,6 @@ import { Play } from "lucide-react"
 import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle } from "react-icons/ai";
 import Loading from "../components/loading";
 import { Toaster, toast } from 'sonner';
-import NavBar from "../components/navBar";
 type favo = {
     movieId:string
 }
