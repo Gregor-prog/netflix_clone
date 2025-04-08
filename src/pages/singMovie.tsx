@@ -1,5 +1,5 @@
 import { useEffect,useRef,useState } from "react"
-import { useLocation, useNavigate } from "react-router"
+import { useLocation } from "react-router"
 import { movieType } from "../types"
 import { Play } from "lucide-react"
 import { AiOutlineHeart, AiFillHeart,AiOutlinePlus, AiFillPlusCircle } from "react-icons/ai";
@@ -22,7 +22,6 @@ export function SingleMovie(){
     const queryParams = new URLSearchParams(location.search)
     const id = queryParams.get("id")
     const userID = queryParams.get("userID")
-    const navigate = useNavigate()
 
     function toggleVideo(){
         if(videoRef.current && vRef.current){
